@@ -1,0 +1,57 @@
+{
+    "General": {
+        "Experiment_Name": "VGG16_Prot_Training",
+        "Train": true,
+        "Plot Results": false,
+        "TensorBoard": true,
+        "Parallel_Computing": false
+    },
+    "Directories": {
+        "base_algoritm_dir": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/COVID-QU-Ex_Dataset/Prototype-Based_Training/"
+    },
+    "Hyperparameters": {
+        "learning_rate": 1e-6,
+        "batch_size": 32,
+        "epochs": 5
+    },
+    "Fine_Tuning": {
+        "Fine_Tuning": true,
+        "UnFreezing_Threshold_Layer": "36.weight"
+    },
+    "Dataset": {
+        "Dataset_Name": "COVID-QU-Ex_Dataset",
+        "Directory": "/nfs/home/nvasconcellos.it/softLinkTests/Datasets/test",
+        "Shuffle": true,
+        "Seed": 123
+    },
+    "xDNN": {
+        "Name": "xDDN_Offline_ProtFilt_OutliersFilt",
+        "Feature_Extraction_Layer": "last_conv",
+        "xDNN_Subprocesses": ["Offline", "Prot_Filtering", "Outliers_Filtering"],
+        "Prot_Recalculation": false
+    },
+    "Loss": {
+        "alpha": 0.7,
+        "beta": 0.3,
+        "epsilon": 1e-8
+    },
+    "Hardware": {
+        "GPU": 0
+    },
+    "ReduceLROnPlateau": {
+        "mode": "min", 
+        "factor": 0.1, 
+        "patience": 5,
+        "threshold": 0.0001, 
+        "threshold_mode": "rel", 
+        "cooldown": 0, 
+        "min_lr": 0, 
+        "eps": 1e-08, 
+        "verbose": true        
+    },
+    "EarlyStopping": {
+        "patience": 21, 
+        "verbose": true, 
+        "delta": 0
+    }
+}

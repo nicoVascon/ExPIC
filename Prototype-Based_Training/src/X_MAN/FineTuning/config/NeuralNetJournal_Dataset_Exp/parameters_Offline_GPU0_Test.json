@@ -1,0 +1,66 @@
+{
+    "General": {
+        "Experiment_Name": "VGG16_xDNN_Offline_from_Flatten_Traditional_FineTuning",
+        "Train": true,
+        "Plot Results": false,
+        "TensorBoard": true,
+        "Parallel_Computing": false
+    },
+    "Directories": {
+        "base_algoritm_dir": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/NeuralNetJournal_Dataset_Exp/Prototype-Based_Training/From_xDNN_Offline/Tests_by_Parts/xDNN_Offline_And_Traditional_FineTuning/"        
+    },
+    "Hyperparameters": {
+        "learning_rate": 1e-6,
+        "batch_size": 32,
+        "epochs": 10000
+    },
+    "Fine_Tuning": {
+        "Fine_Tuning": true,
+        "UnFreezing_Threshold_Layer": "29.weight"
+    },
+    "Dataset": {
+        "Dataset_Name": "NeuralNet_Journal",
+        "Directory": "/nfs/home/nvasconcellos.it/softLinkTests/Datasets/dataset_NeuralNet_Journal/Split_Train72.2_Test27.8",
+        "Shuffle": true,
+        "Seed": 123
+    },
+    "PCA": {
+        "PCA_Emulator": false,
+        "Train": false,
+        "Weights": "/nfs/home/nvasconcellos.it/softLinkTests/X-MAN/Prototype-Based_Training/src/X_MAN/Models/PCA_Emulator/weights/Using_Only_Train_Set/pca_25088c_To_1042c.pt",
+        "Original_Num_Comp": 25088,
+        "New_Num_Comp": 115
+    },
+    "xDNN": {
+        "Base_Prototypes_path": "",
+        "Name": "xDDN_Offline_ProtFilt_OutliersFilt",
+        "Feature_Extraction_Layer": "last_conv",
+        "xDNN_Subprocesses": ["Offline", "Prot_Filtering", "Outliers_Filtering"],
+        "Prot_Recalculation": false
+    },
+    "Loss": {
+        "Function": "MSE",
+        "alpha": 0.999999999,
+        "beta": 1e-9,
+        "epsilon": 1e-8
+    },
+    "Hardware": {
+        "GPU": 0
+    },
+    "ReduceLROnPlateau": {
+        "mode": "min", 
+        "factor": 0.5, 
+        "patience": 10,
+        "threshold": 0.0001, 
+        "threshold_mode": "rel", 
+        "cooldown": 0, 
+        "min_lr": 1e-10, 
+        "eps": 0, 
+        "verbose": true        
+    },
+    "EarlyStopping": {
+        "patience": 105, 
+        "verbose": true, 
+        "delta": 0
+    }
+}

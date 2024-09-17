@@ -1,0 +1,66 @@
+{
+    "General": {
+        "Experiment_Name": "PCA_Emulator_Training_478Components",
+        "Train": true,
+        "Plot Results": false,
+        "TensorBoard": true,
+        "Parallel_Computing": false
+    },
+    "Directories": {
+        "base_algoritm_dir": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/NeuralNetJournal_Dataset_Exp/Prototype-Based_Training/PCA/PCA_Emulator/"        
+    },
+    "Hyperparameters": {
+        "learning_rate": 10e-6,
+        "batch_size": 32,
+        "epochs": 100000
+    },
+    "Fine_Tuning": {
+        "Fine_Tuning": false,
+        "UnFreezing_Threshold_Layer": "36.weight"
+    },
+    "Dataset": {
+        "Dataset_Name": "COVID-QU-Ex_Dataset",
+        "Directory": {
+            "inputs": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/NeuralNetJournal_Dataset_Exp/Prototype-Based_Training/PCA/Base_Line/Feature_Vectors_FromFlatten/Pickle/Original_25088comp/inputs.pkl",
+            "outputs": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/NeuralNetJournal_Dataset_Exp/Prototype-Based_Training/PCA/Base_Line/Feature_Vectors_FromFlatten/Pickle/PCA_478comp/outputs.pkl"
+        },
+        "Shuffle": true,
+        "Seed": 123
+    },
+    "PCA": {
+        "Original_Num_Comp": 25088,
+        "New_Num_Comp": 478
+    },
+    "xDNN": {
+        "Base_Prototypes_path": "",
+        "Name": "xDDN_Offline_OutliersFilt",
+        "Feature_Extraction_Layer": "last_fc",
+        "xDNN_Subprocesses": ["Offline", "Prot_Filtering", "Outliers_Filtering"],
+        "Prot_Recalculation": false
+    },
+    "Loss": {
+        "Function": "MSE",
+        "alpha": 0.999999,
+        "beta": 1e-6,
+        "epsilon": 1e-8
+    },
+    "Hardware": {
+        "GPU": 0
+    },
+    "ReduceLROnPlateau": {
+        "mode": "min", 
+        "factor": 0.01, 
+        "patience": 5,
+        "threshold": 0.001, 
+        "threshold_mode": "rel", 
+        "cooldown": 0, 
+        "min_lr": 1e-10, 
+        "eps": 0, 
+        "verbose": true        
+    },
+    "EarlyStopping": {
+        "patience": 41, 
+        "verbose": true, 
+        "delta": 0
+    }
+}

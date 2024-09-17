@@ -1,0 +1,71 @@
+{
+    "General": {
+        "Experiment_Name": "Optuna/COVID-QU-Ex_Dataset_Prot-Based_TrainWithPCA_Emulator/Trial_Manual_5_PCA_267c/FineTuning_25.weight_To_End/T1",
+        "Train": true,
+        "Plot Results": false,
+        "TensorBoard": true,
+        "Parallel_Computing": false
+    },
+    "Directories": {
+        "base_algoritm_dir": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/COVID-QU-Ex_Dataset/Prototype-Based_Training/"
+    },
+    "Hyperparameters": {
+        "learning_rate": 1e-05,
+        "batch_size": 256,
+        "epochs": 10000
+    },
+    "Fine_Tuning": {
+        "Fine_Tuning": true,
+        "UnFreezing_Threshold_Layer": "25.weight",
+        "weights": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/COVID-QU-Ex_Dataset/Prototype-Based_Training/Optuna/COVID-QU-Ex_Dataset_Prot-Based_TrainWithPCA_Emulator/Trial_Manual_5_PCA_267c/FineTuning_27.weight_To_End/T1/checkpoints/best_model.pt"
+    },
+    "Dataset": {
+        "Dataset_Name": "COVID-QU-Ex_Dataset",
+        "Directory": "/nfs/home/nvasconcellos.it/softLinkTests/Datasets/COVID-QU-Ex_Dataset/Lung_Segmentation_Data/Lung_Segmentation_Data",
+        "Shuffle": true,
+        "Seed": 123
+    },
+    "PCA": {
+        "PCA_Emulator": true,
+        "Train": false,
+        "Weights": "/nfs/home/nvasconcellos.it/softLinkTests/X-MAN/Prototype-Based_Training/src/X_MAN/Models/PCA_Emulator/weights/Using_Only_Train_Set/pca_25088c_To_267c.pt",
+        "Original_Num_Comp": 25088,
+        "New_Num_Comp": 267
+    },
+    "xDNN": {
+        "Base_Prototypes_path": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/COVID-QU-Ex_Dataset/Prototype-Based_Training/Optuna/COVID-QU-Ex_Dataset_Prot-Based_TrainWithPCA_Emulator/Trial_Manual_5_PCA_267c/FineTuning_27.weight_To_End/T1/xDDN_Offline_OutliersFilt/Output_xDNN_LearningDic",
+        "Name": "xDDN_Offline_OutliersFilt",
+        "Feature_Extraction_Layer": "last_conv",
+        "xDNN_Subprocesses": [
+            "Offline",
+            "Prot_Filtering",
+            "Outliers_Filtering"
+        ],
+        "Prot_Recalculation": false
+    },
+    "Loss": {
+        "Function": "CCE",
+        "alpha": 0.999999,
+        "beta": 1e-06,
+        "epsilon": 1e-08
+    },
+    "Hardware": {
+        "GPU": 0
+    },
+    "ReduceLROnPlateau": {
+        "mode": "min",
+        "factor": 0.01,
+        "patience": 4,
+        "threshold": 0.0001,
+        "threshold_mode": "rel",
+        "cooldown": 0,
+        "min_lr": 0,
+        "eps": 1e-08,
+        "verbose": true
+    },
+    "EarlyStopping": {
+        "patience": 41,
+        "verbose": true,
+        "delta": 0
+    }
+}

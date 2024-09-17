@@ -1,0 +1,66 @@
+{
+    "General": {
+        "Experiment_Name": "VGG16_Prot_Training_COVID-QU-Ex_Dataset_WithPCA_PyTorch_30Comp",
+        "Train": true,
+        "Plot Results": false,
+        "TensorBoard": true,
+        "Parallel_Computing": false
+    },
+    "Directories": {
+        "base_algoritm_dir": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/COVID-QU-Ex_Dataset/Prototype-Based_Training/"        
+    },
+    "Hyperparameters": {
+        "learning_rate": 5e-05,
+        "batch_size": 64,
+        "epochs": 100
+    },
+    "Fine_Tuning": {
+        "Fine_Tuning": true,
+        "UnFreezing_Threshold_Layer": "29.weight"
+    },
+    "Dataset": {
+        "Dataset_Name": "COVID-QU-Ex_Dataset",
+        "Directory": "/nfs/home/nvasconcellos.it/softLinkTests/Datasets/COVID-QU-Ex_Dataset/Lung_Segmentation_Data/Lung_Segmentation_Data",
+        "Shuffle": true,
+        "Seed": 123
+    },
+    "PCA": {
+        "PCA_Emulator": false,
+        "Train": false,
+        "Weights": "",
+        "V_Matrix": "/nfs/home/nvasconcellos.it/softLinkTests/X-MAN/Prototype-Based_Training/src/X_MAN/Models/PCA_PyTorch/COVID-QU-Ex_Dataset/PCA_V_Matrix_25088c_To_30c_xDNNEvolving.pt",        
+        "Original_Num_Comp": 25088,
+        "New_Num_Comp": 30
+    },
+    "xDNN": {
+        "Base_Prototypes_path": "",
+        "Name": "xDDN_Evolving",
+        "Feature_Extraction_Layer": "last_conv",
+        "xDNN_Subprocesses": ["Evolving"],
+        "Prot_Recalculation": false
+    },
+    "Loss": {
+        "Function": "CCE",
+        "alpha": 1e-06,
+        "epsilon": 1e-08
+    },
+    "Hardware": {
+        "GPU": 1
+    },
+    "ReduceLROnPlateau": {
+        "mode": "min", 
+        "factor": 0.5, 
+        "patience": 10,
+        "threshold": 0.0001, 
+        "threshold_mode": "rel", 
+        "cooldown": 0, 
+        "min_lr": 1e-10, 
+        "eps": 0, 
+        "verbose": true        
+    },
+    "EarlyStopping": {
+        "patience": 52, 
+        "verbose": true, 
+        "delta": 0
+    }
+}

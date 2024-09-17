@@ -1,0 +1,74 @@
+{
+    "General": {
+        "Experiment_Name": "VGG16_Prot_Training_NeuralNet_Journal_Dataset_WithPCA_PyTorch_199Comp_New_Split",
+        "Train": true,
+        "Plot Results": false,
+        "TensorBoard": true,
+        "Parallel_Computing": false
+    },
+    "Directories": {
+        "base_algoritm_dir": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/NeuralNetJournal_Dataset_Exp/Prototype-Based_Training/From_xDNN_Offline/"        
+    },
+    "Hyperparameters": {
+        "learning_rate": 5e-05,
+        "batch_size": 64,
+        "epochs": 100
+    },
+    "Fine_Tuning": {
+        "Fine_Tuning": true,
+        "UnFreezing_Threshold_Layer": "29.weight"
+    },
+    "Dataset": {
+        "Dataset_Name": "NeuralNet_Journal",
+        "Directory": "/nfs/home/nvasconcellos.it/softLinkTests/Datasets/dataset_NeuralNet_Journal/Local_Split_Train72.2*0.8_Val72.2*0.2_Test_27.8",
+        "Shuffle": true,
+        "Seed": 123
+    },
+    "PCA": {
+        "PCA_Emulator": false,
+        "Train": false,
+        "Weights": "",
+        "V_Matrix": "/nfs/home/nvasconcellos.it/softLinkTests/X-MAN/Prototype-Based_Training/src/X_MAN/Models/PCA_PyTorch/NeuralNetJournal/New_Split/PCA_V_Matrix_25088c_To_199c_xDNNOffline.pt",        
+        "Original_Num_Comp": 25088,
+        "New_Num_Comp": 199
+    },
+    "xDNN": {
+        "Base_Prototypes_path": "",
+        "Name": "xDDN_Mean-Shift",
+        "Feature_Extraction_Layer": "last_conv",
+        "xDNN_Subprocesses": ["Custom_Clustering"],
+        "Prot_Recalculation": false
+    },
+    "Clustering": {
+        "Normalization": "L2-Norm",
+        "Mean-Shift_bandwidth": 0.7654251871895079
+    },
+    "Classification": {
+        "Classifier": "kNN",
+        "k_neighbors": 1
+    },    
+    "Loss": {
+        "Function": "CCE",
+        "alpha": 1e-06,
+        "epsilon": 1e-08
+    },
+    "Hardware": {
+        "GPU": 0
+    },
+    "ReduceLROnPlateau": {
+        "mode": "min", 
+        "factor": 0.5, 
+        "patience": 10,
+        "threshold": 0.0001, 
+        "threshold_mode": "rel", 
+        "cooldown": 0, 
+        "min_lr": 1e-10, 
+        "eps": 0, 
+        "verbose": true        
+    },
+    "EarlyStopping": {
+        "patience": 32, 
+        "verbose": true, 
+        "delta": 0
+    }
+}

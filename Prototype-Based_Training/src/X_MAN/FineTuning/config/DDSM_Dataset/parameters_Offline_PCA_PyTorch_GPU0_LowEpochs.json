@@ -1,0 +1,66 @@
+{
+    "General": {
+        "Experiment_Name": "VGG16_Prot_Training_CBIS_DDSM_Dataset_WithPCA_PyTorch_30Comp",
+        "Train": true,
+        "Plot Results": false,
+        "TensorBoard": true,
+        "Parallel_Computing": false
+    },
+    "Directories": {
+        "base_algoritm_dir": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/Benchmark_Datasets/CBIS_DDSM_Dataset/Prototype-Based_Training/Test_1/xDNN_Offline/"        
+    },
+    "Hyperparameters": {
+        "learning_rate": 5e-05,
+        "batch_size": 64,
+        "epochs": 100
+    },
+    "Fine_Tuning": {
+        "Fine_Tuning": true,
+        "UnFreezing_Threshold_Layer": "29.weight"
+    },
+    "Dataset": {
+        "Dataset_Name": "CBIS_DDSM_Dataset",
+        "Directory": "/nfs/home/nvasconcellos.it/softLinkTests/Datasets/Benchmark_Datasets/CBIS-DDSM/split/splited_dataset",
+        "Shuffle": true,
+        "Seed": 123
+    },
+    "PCA": {
+        "PCA_Emulator": false,
+        "Train": false,
+        "Weights": "",
+        "V_Matrix": "/nfs/home/nvasconcellos.it/softLinkTests/xDNN_Covid19_Det/xDNN---Python/FineTuning/results/FineTuning_VGG16_CB/Benchmark_Datasets/CBIS_DDSM_Dataset/Prototype-Based_Training/Test_1/xDNN_Offline/Optuna/CBIS-DDSM_Dataset_Prot-Based_Train_PCA_PyTorch_FVFromLastConv_xDNNOffline/xDDN_Offline_ProtFilt_OutliersFilt_PCA_730_trial_727/PCA_V_matrix.pt",        
+        "Original_Num_Comp": 25088,
+        "New_Num_Comp": 730
+    },
+    "xDNN": {
+        "Base_Prototypes_path": "",
+        "Name": "xDDN_Offline_OutliersFilt",
+        "Feature_Extraction_Layer": "last_conv",
+        "xDNN_Subprocesses": ["Offline", "Prot_Filtering", "Outliers_Filtering"],
+        "Prot_Recalculation": false
+    },
+    "Loss": {
+        "Function": "CCE",
+        "alpha": 1e-06,
+        "epsilon": 1e-08
+    },
+    "Hardware": {
+        "GPU": 0
+    },
+    "ReduceLROnPlateau": {
+        "mode": "min", 
+        "factor": 0.5, 
+        "patience": 10,
+        "threshold": 0.0001, 
+        "threshold_mode": "rel", 
+        "cooldown": 0, 
+        "min_lr": 1e-10, 
+        "eps": 0, 
+        "verbose": true        
+    },
+    "EarlyStopping": {
+        "patience": 52, 
+        "verbose": true, 
+        "delta": 0
+    }
+}
